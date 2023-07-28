@@ -1,3 +1,4 @@
+
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
@@ -36,7 +37,7 @@ function checkAnswer(currentLevel) {
     } else {
       playSound("wrong");
       $("body").addClass("game-over");
-      $("#level-title").text("Game Over, Press READY key to Restart");
+      $("#level-title").text("Game Over, Press Any Key to Restart");
 
       setTimeout(function () {
         $("body").removeClass("game-over");
