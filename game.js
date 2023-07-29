@@ -8,6 +8,7 @@ $(document).ready(function() {
   // Hide the colored buttons and the level title initially
   $(".btn").hide();
   $("#start-btn").show();
+  $("#home-btn").hide();
   $("#restart-btn").hide();
   $("#level-title").text("CLICK START TO BEGIN");
 
@@ -16,17 +17,31 @@ $(document).ready(function() {
     startGame();
   });
 
-  // Add keypress event handler to start the game when any key is pressed
-  $(document).keypress(function() {
-    startGame();
-  });
+    // Add keypress event handler to start the game when any key is pressed
+    $(document).keypress(function(event) {
+      // Check if the pressed key is the 'h' key (ASCII code 104) for "home"
+      if (event.which === 104 || event.keyCode === 104) {
+        goHome();
+      } else {
+        startGame();
+      }
+    });
+  
 
   // Add click event handler for the restart button
   $("#restart-btn").click(function() {
     startOver();
     startGame();
   });
+
+
+ 
+  // Add click event handler for the home button
+  $("#home-btn").click(function() {
+    goHome();
+  });
 });
+
 
 function startGame() {
   if (!started) {
@@ -36,6 +51,7 @@ function startGame() {
     $("#level-title").show();
     $("#start-btn").hide();
     $("#restart-btn").hide();
+    $("#home-btn").hide();
 
     $("#level-title").text("Level " + level);
     nextSequence();
@@ -62,8 +78,9 @@ function checkAnswer(currentLevel) {
   } else {
     playSound("wrong");
     $("#restart-btn").show();
+    $("#home-btn").show();
     $("body").addClass("game-over");
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Press Any Key, Restart or Home");
 
     setTimeout(function() {
       $("body").removeClass("game-over");
@@ -101,4 +118,15 @@ function startOver() {
   level = 0;
   gamePattern = [];
   started = false;
+}
+
+function goHome() {
+  started = false;
+  $("#level-title").text("CLICK START TO BEGIN");
+  $(".btn").hide();
+  $("#starting-img").show();
+  $("#start-btn").show();
+  $("#restart-btn").hide();
+  $("#home-btn").hide();
+  startOver();
 }
