@@ -1,21 +1,28 @@
 body {
   text-align: center;
   background-color: #011F3F;
+  margin: 0;
+  padding: 0;
 }
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+  margin: 5%;
+  color: #fef2bf;
 }
 
 .container {
-  display: block;
   width: 50%;
   margin: auto;
-
+  display: block;
 }
+
+#starting-img img{
+  width: 500px;
+  height: 500px;
+}
+
 
 .btn {
   margin: 25px;
@@ -26,28 +33,136 @@ body {
   border-radius: 20%;
 }
 
+.play-btn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 40px;
+  transition: all 200ms ease;
+  padding: 1rem;
+  width: 9rem;
+  border-radius: 2rem;
+}
+
+.play-btn:hover {
+  border: rgb(156, 15, 15) 0.2rem solid;
+}
+
 .game-over {
   background-color: red;
   opacity: 0.8;
 }
 
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.yellow {
-  background-color: yellow;
-}
+.red { background-color: red; }
+.green { background-color: green; }
+.blue { background-color: blue; }
+.yellow { background-color: yellow; }
 
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+/* Mobile Layout */
+@media only screen and (max-width: 768px) {
+  body { 
+    margin-top: 20vh; 
+  }
+  #level-title { 
+    font-size: 1.5rem; 
+    margin: 2%; 
+    color: #fef2bf; 
+  }
+  
+  .container {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 500px; /* Limit container's maximum width for better centering */
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .btn {
+    height: 100px;
+    width: 100px;
+    border: 8px solid black;
+    border-radius: 20%;
+  }
+
+  #starting-img img{
+    width: 300px;
+    height: 300px;
+  }
+  
+  .play-btn { width: 8rem; font-size: 1rem; margin-top: 20px; }
+}
+
+@media only screen and (max-width: 940px) {
+  /* For tablets: */
+  body { margin-top: 15vh; }
+
+  /* Same styles as mobile for 768px breakpoint */
+  #level-title { 
+    font-size: 1.5rem; 
+    margin: 2%; 
+    color: #fef2bf; 
+  }
+
+  .container {
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .btn {
+    margin: 15px;
+    height: 140px;
+    width: 140px;
+    border: 8px solid black;
+    border-radius: 20%;
+  }
+
+  #starting-img img{
+    width: 400px;
+    height: 400px;
+  }
+  
+
+  .play-btn { width: 8rem; font-size: 1rem; margin-top: 20px; }
+}
+
+@media screen and (max-width: 1200px) {
+  /* For larger screens: */
+  body { margin-top: 5vh; }
+
+  /* Same styles as mobile for 768px breakpoint */
+  #level-title { 
+    font-size: 1.5rem;
+    margin: 6%;
+    margin-top: 10vh;
+    color: #fef2bf; 
+  }
+  
+
+  .container {
+    width: 70%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .btn {
+    margin: 15px;
+    height: 140px;
+    width: 140px;
+    border: 8px solid black;
+    border-radius: 20%;
+  }
+  
+
+  .play-btn { width: 8rem; font-size: 1rem; margin-top: 20px; }
 }
